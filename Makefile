@@ -16,5 +16,4 @@ build:
 
 rundocker:
 	docker run -d -p $(localport):8080/tcp $(shell docker images $(imagename):$(imageversion) -q)
-#imageid = `docker images ztests/hello:v1 -q`
-#docker run -p $(localport):8080/tcp `docker images ztests/hello:v1 -q`
+
