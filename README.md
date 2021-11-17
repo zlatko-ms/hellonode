@@ -8,13 +8,24 @@ The Makefile is here to simplify the app dockerization process.
 
 ## Usage
 
-Make sure that you use Linux (or WSL on windows) when invoking the make process then simply issue the following : 
+Make sure that you use Linux (or WSL on windows) when invoking the make process.
+
+To build the container issue the following : 
 
 ```bash 
-make
-make rundocker
+make build
+```
+To test your container issue the follwing command : 
+
+```bash 
+make test
 ```
 
-Then open your browser to http://localhost:80/hello
+And to do a full pass with build & tests simply issue : 
+```bash 
+make all
+```
+
+
 
 

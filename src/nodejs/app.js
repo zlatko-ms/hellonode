@@ -15,7 +15,8 @@ const appPort = process.env.HTTPORT || 8080;
 helloHandler = function(req,res) {
   logger.info("recv hello request from ip="+sourceIp);
   var sourceIp = req.headers['x-forwarded-for'] || req.socket.remoteAddress || "unknown" ;
-  var responsePayload = { backendid : backendId, backendnum : backendOrdinal, resSource : sourceIp, message: "hello-client" }
+  var respTime = new Date().toISOString();
+  var responsePayload = { backendid : backendId, backendnum : backendOrdinal, resSource : sourceIp, message: "hello-client", date: respTime }
   res.json(responsePayload);
   logger.info("sent hello response to client from ip="+sourceIp);
 }
