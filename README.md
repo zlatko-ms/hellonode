@@ -2,9 +2,20 @@
 
 This is a simple nodejs/express application that I use as baseline for testing various Azure cloud infrastructures.
 
-The app provides a simple HTTP GET handler and embeds a logger.
+I ended up by storing it on github in order to be able to fetch it from any (connected) environnement.
+
+The app is trivial and aims to provide a simple HTTP responder with a logger facility.
+
+It is very easy to extend/override the code in order to mocl or test any backend side deployement.
 
 The Makefile is here to simplify the app dockerization process.
+
+## Invoking the App
+
+The app responds to an HTTP GET on the /hello URI via a json payload that contains : 
+* the id and number of the app ( handy for clustering tests)
+* the source ip of the request ( handy for NAT-ing and LB testing)
+* the date ( in order to change the responses when bursting the requests )
 
 ## Usage
 
@@ -25,7 +36,6 @@ And to do a full pass with build & tests simply issue :
 ```bash 
 make all
 ```
-
 
 
 
