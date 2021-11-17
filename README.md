@@ -1,2 +1,4 @@
-# hellonode
-simple hello http backend for multi purpose cloud testing
+# HelloNode
+
+This is a simple nodejs/express application that I use as baseline for testing various Azure cloud infrastructures.
+
