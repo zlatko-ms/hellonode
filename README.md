@@ -19,14 +19,14 @@ The app responds to an HTTP GET on the /hello URI via a json payload that contai
 
 ## Usage
 
-Make sure that you use Linux (or WSL on windows) when invoking the make process.
+You'll need the GNU make and a bash shell to play with the makefile.
 
-To build the container issue the following : 
+To build the container issue the following command : 
 
 ```bash 
 make build
 ```
-To test your container issue the follwing command : 
+To test your container issue the following command : 
 
 ```bash 
 make test
