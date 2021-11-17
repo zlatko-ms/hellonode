@@ -6,7 +6,7 @@ I ended up by storing it on github in order to be able to fetch it from any (con
 
 The app is trivial and aims to provide a simple HTTP responder with a logger facility.
 
-It is very easy to extend/override the code in order to mocl or test any backend side deployement.
+It is very easy to extend/override the code in order to mock or test any backend side deployement.
 
 The Makefile is here to simplify the app dockerization process.
 
