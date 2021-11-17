@@ -2,7 +2,7 @@
 
 This is a simple nodejs/express application that I use as baseline for testing various Azure cloud infrastructures.
 
-The app provides a simple HTTP GET handler and embeds logging facilities.
+The app provides a simple HTTP GET handler and embeds a logger.
 
 The Makefile is here to simplify the app dockerization process.
 
