@@ -21,6 +21,8 @@ The app responds to an HTTP GET on the /hello URI via a json payload that contai
 
 You'll need the GNU make and a bash shell to play with the makefile.
 
+If you are on Windows, I'd advise using the WSL ;).
+
 To build the container issue the following command : 
 
 ```bash 
