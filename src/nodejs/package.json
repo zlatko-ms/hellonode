@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node app.js",
-    "app:clean": "rm -rf node_modules/*",
+    "app:clean": "rm -rf node_modules/* && rm -f helloer.log",
     "app:init": "npm install",
     "app:run": "node app.js"
   },

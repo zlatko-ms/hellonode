@@ -8,8 +8,15 @@ const { v4: uuidv4 } = require('uuid');
 const backendId = uuidv4();
 const backendOrdinal = process.env.BACKEND_ORDINAL || Math.floor(Math.random() * (255 - 1 + 1) + 1);
 const myLoggerFormat = printf(({ level, message, label, timestamp }) => { return `${timestamp} [${level}] ${message}`; });
-const logger = createLogger({format: combine(timestamp({format: 'YYYY-MM-DD HH:mm:ss-SS'}),myLoggerFormat),transports: [new transports.Console()]});
+const logger = createLogger( {
+  format: combine(timestamp({format: 'YYYY-MM-DD HH:mm:ss-SS'}),myLoggerFormat),
+  transports: [
+    new transports.Console(),
+    new transports.File({ filename: 'helloer.log' })
+  ]});
 const appPort = process.env.HTTPORT || 8080;
+
+
 
 // hello message handler
 helloHandler = function(req,res) {
@@ -29,6 +36,7 @@ helloHandler = function(req,res) {
     'response-date': respTime 
   }
   res.json(responsePayload);
+  
   logger.info("sent hello response id="+respId+" to client from ip="+sourceIp);
 }
 
