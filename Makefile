@@ -1,6 +1,6 @@
 .SILENT: clean dockerbuild rundocker testdocker stopdocker build pause test
 
-imagename = ztests/hello
+imagename = zlatkoa/hellonode
 imageversion = v1
 localport = 80
 
