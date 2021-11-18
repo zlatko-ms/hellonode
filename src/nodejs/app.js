@@ -13,17 +13,46 @@ const appPort = process.env.HTTPORT || 8080;
 
 // hello message handler
 helloHandler = function(req,res) {
-  logger.info("recv hello request from ip="+sourceIp);
+
+  logger.info("recv hello request");
+  
   var sourceIp = req.headers['x-forwarded-for'] || req.socket.remoteAddress || "unknown" ;
   var respTime = new Date().toISOString();
-  var responsePayload = { backendid : backendId, backendnum : backendOrdinal, resSource : sourceIp, message: "hello-client", date: respTime }
+  var respId = uuidv4();
+
+  var responsePayload = { 
+    'backend-id' : backendId, 
+    'backend-num' : backendOrdinal, 
+    'request-source-ip' : sourceIp,
+    'response-id' : respId, 
+    'response-message': "hello-client", 
+    'response-date': respTime 
+  }
   res.json(responsePayload);
-  logger.info("sent hello response to client from ip="+sourceIp);
+  logger.info("sent hello response id="+respId+" to client from ip="+sourceIp);
 }
 
 // app 
 logger.info("starting backend id="+backendId+" ordinal="+backendOrdinal);
 var app = express();
-app.get('/hello', helloHandler);
+app.get('/hello', function(req,res) {
+
+  logger.info("recv hello request from ip="+sourceIp);
+  
+  var sourceIp = req.headers['x-forwarded-for'] || req.socket.remoteAddress || "unknown" ;
+  var respTime = new Date().toISOString();
+  var respId = uuidv4();
+
+  var responsePayload = { 
+    'backend-id' : backendId, 
+    'backend-num' : backendOrdinal, 
+    'request-source-ip' : sourceIp,
+    'response-id' : respId, 
+    'response-message': "hello-client", 
+    date: respTime 
+  }
+  res.json(responsePayload);
+  logger.info("sent hello response id="+respId+" to client from ip="+sourceIp);
+});
 app.listen(appPort);
 logger.info("started backend id="+backendId+" ordinal="+backendOrdinal+" on port="+appPort);

@@ -15,7 +15,7 @@ The Makefile is here to simplify the app dockerization process.
 The app responds to an HTTP GET on the /hello URI via a json payload that contains : 
 * the id and number of the app ( handy for __clustering__ tests)
 * the source ip of the request ( handy for __NAT-ing and LB__ testing)
-* the date ( in order to change the responses when bursting the requests )
+* the response date and id ( in order to change the response payloads when bursting the requests )
 
 ## Usage
 

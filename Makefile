@@ -32,7 +32,7 @@ pause:
 
 testdocker:
 	echo "> sending 10 request to running container, reply is the following :"
-	for i in `seq 1 10`; do echo $(shell curl -s http://localhost/hello); done;
+	echo $(shell curl -s http://localhost/hello)
 
 stopdocker:
 	$(eval TMPID := $(shell docker ps -l -q))
