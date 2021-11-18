@@ -7,7 +7,8 @@ on:
     branches: [ main ]
 
 jobs:
-  buildAndPublishImage:
+  buildAndPushImage:
+    name: Build Image and Publish to Docker Hub
 
     runs-on: ubuntu-latest
 
