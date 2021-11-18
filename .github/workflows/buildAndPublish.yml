@@ -7,7 +7,7 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  buildAndPublishImage:
 
     runs-on: ubuntu-latest
 
