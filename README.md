@@ -38,7 +38,7 @@ And to do a full pass with build & tests simply issue :
 ```bash 
 make all
 ```
-and that's all folks ...
+
 
 
 
