@@ -4,41 +4,30 @@ This is a simple nodejs/express application that I use as baseline for testing v
 
 I ended up by storing it on github in order to be able to fetch it from any (connected) environnement.
 
-The app is trivial and aims to provide a simple HTTP responder with a logger facility.
+The app is trivial and aims to provide : 
+
+- a simple HTTP responder with a logger facility
+- a bouncing HTTP responder ( it calls github api) 
 
 It is very easy to extend/override the code in order to mock or test any backend side deployement.
 
-The Makefile is here to simplify the app dockerization process.
 
 ## Invoking the App
+
+### Simple HTTP responder
 
 The app responds to an HTTP GET on the /hello URI via a json payload that contains : 
 * the id and number of the app ( handy for __clustering__ tests)
 * the source ip of the request ( handy for __NAT-ing and LB__ testing)
 * the response date and id ( in order to change the response payloads when bursting the requests )
 
-## Usage
+### Bouncing HTTP responder
 
-You'll need the GNU make and a bash shell to play with the makefile.
+The app responds to an HTTP GET on the /github/repos?username=**github_username** and will return the repos for the given github user.
 
-If you are on Windows, I'd advise using the WSL ;).
+## Docker
 
-To build the container issue the following command : 
-
-```bash 
-make build
-```
-To test your container issue the following command : 
-
-```bash 
-make test
-```
-
-And to do a full pass with build & tests simply issue : 
-```bash 
-make all
-```
-
+The docker image is available on the docker hub as azlatko/hellonode:**version**
 
 
 

@@ -26,7 +26,7 @@ jobs:
     - name: Container build and push
       uses: docker/build-push-action@v2
       with:
-          context: src/docker
+          context: src/nodejs
           platforms: linux/amd64
           push: true
           tags: |
