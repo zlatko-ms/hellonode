@@ -9,7 +9,7 @@
     "app:run": "node app.js"
   },
   "dependencies": {
-    "axios": "^0.25.0",
+    "axios": "^1.0.0",
     "cookie-parser": "~1.4.4",
     "debug": "~4.3.2",
     "express": "~4.17.1",
